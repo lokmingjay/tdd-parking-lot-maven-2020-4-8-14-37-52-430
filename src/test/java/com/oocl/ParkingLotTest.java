@@ -2,7 +2,6 @@ package com.oocl;
 
 import org.junit.Assert;
 import org.junit.Test;
-import sun.security.krb5.internal.Ticket;
 
 public class ParkingLotTest {
     @Test
@@ -21,6 +20,17 @@ public class ParkingLotTest {
         ParkingTicket ticket = parkingLot.park(car);
         Car fetchCar = parkingLot.fetch(ticket);
         Assert.assertEquals(car, fetchCar);
+    }
+
+    @Test
+    public void should_not_return_car_when_given_ticket_is_used(){
+        ParkingLot parkingLot = new ParkingLot();
+        Car car = new Car();
+        ParkingTicket ticket = parkingLot.park(car);
+        parkingLot.fetch(ticket);
+        Car fetchCar = parkingLot.fetch(ticket);
+        Assert.assertNull(fetchCar);
+
     }
 
 }
