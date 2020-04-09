@@ -11,22 +11,15 @@ public class ParkingLot {
         this.capacity = capacity;
     }
     public ParkingTicket park(Car car) {
-        if (carTicketMap.size() == capacity){
-           throw new FullCapacityException();
-        }
+//        if (carTicketMap.size() == capacity){
+//           throw new FullCapacityException();
+//        }
         ParkingTicket ticket = new ParkingTicket();
         carTicketMap.put(ticket, car);
         return ticket;
     }
 
     public Car fetch(ParkingTicket ticket) {
-
-        if(ticket==null) {
-            throw new TicketNotProvidedException();
-        }
-        if(!carTicketMap.containsKey(ticket)){
-            throw new UnrecognizedParkingTicketException();
-        }
         return carTicketMap.remove(ticket);
     }
 
