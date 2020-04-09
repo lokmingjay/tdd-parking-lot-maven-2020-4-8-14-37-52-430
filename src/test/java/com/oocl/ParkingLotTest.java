@@ -32,15 +32,15 @@ public class ParkingLotTest {
 //        Assert.assertNull(fetchCar);
 //    }
 
-    @Test
-    public void should_not_return_ticket_when_capacity_is_full(){
-        ParkingLot parkingLot = new ParkingLot();
-        Car carA = new Car();
-        Car carB = new Car();
-
-        ParkingTicket ticketA = parkingLot.park(carA);
-        ParkingTicket ticketB = parkingLot.park(carB);
-        Assert.assertNull(ticketB);
-    }
+//    @Test
+//    public void should_not_return_ticket_when_capacity_is_full(){
+//        ParkingLot parkingLot = new ParkingLot();
+//        Car carA = new Car();
+//        Car carB = new Car();
+//
+//        ParkingTicket ticketA = parkingLot.park(carA);
+//        ParkingTicket ticketB = parkingLot.park(carB);
+//        Assert.assertNull(ticketB);
+//    }
 
 }

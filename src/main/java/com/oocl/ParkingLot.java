@@ -12,7 +12,7 @@ public class ParkingLot {
     }
     public ParkingTicket park(Car car) {
         if (carTicketMap.size() == capacity){
-            return null;
+           throw new FullCapacityException();
         }
         ParkingTicket ticket = new ParkingTicket();
         carTicketMap.put(ticket, car);
