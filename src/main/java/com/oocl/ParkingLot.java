@@ -20,6 +20,10 @@ public class ParkingLot {
     }
 
     public Car fetch(ParkingTicket ticket) {
+
+        if(ticket==null) {
+            throw new TicketNotProvidedException();
+        }
         if(!carTicketMap.containsKey(ticket)){
             throw new UnrecognizedParkingTicketException();
         }
