@@ -30,4 +30,7 @@ public class ParkingLot {
     public int emptyParkingNumber (){
         return capacity-carTicketMap.size();
     }
+    public double availablePositionRate() {
+        return Double.valueOf(emptyParkingNumber())/capacity;
+    }
 }
