@@ -6,14 +6,10 @@ import java.util.List;
 
 public class ParkingBoy {
     protected List<ParkingLot> parkingLots = new ArrayList<>();
-    private ParkingLot parkingLot;
+    //private ParkingLot parkingLot;
 
     public ParkingBoy() {
     }
-
-//    public ParkingBoy(ParkingLot parkingLot){
-//        this.parkingLot = parkingLot;
-//    }
 
     public ParkingBoy(ParkingLot... parkingLots) {
         // this.parkingLots = Arrays.asList(parkingLots);
@@ -34,11 +30,11 @@ public class ParkingBoy {
 
     public Car fetch(ParkingTicket ticket) {
 
-        if(ticket==null) {
+        if (ticket == null) {
             throw new TicketNotProvidedException();
         }
         Boolean targetCarIsPark = this.parkingLots.stream().anyMatch(parkingLot -> parkingLot.carTicketMap.containsKey(ticket));
-        if(targetCarIsPark){
+        if (targetCarIsPark) {
             ParkingLot targetParkingLot = this.parkingLots.stream().filter((parkingLot -> parkingLot.carTicketMap.containsKey(ticket))).findFirst().get();
             return parkingLots.get(0).fetch(ticket);
         }

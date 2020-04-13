@@ -9,7 +9,7 @@ public class SuperSmartParkingBoy extends ParkingBoy {
     @Override
     public ParkingTicket park(Car car) {
 
-        Double targetAvailablePositionRate =  parkingLots.stream().mapToDouble(ParkingLot::availablePositionRate).max().getAsDouble();
+        Double targetAvailablePositionRate = parkingLots.stream().mapToDouble(ParkingLot::availablePositionRate).max().getAsDouble();
         System.out.println(targetAvailablePositionRate);
 
         for (ParkingLot parkingLot : parkingLots) {
