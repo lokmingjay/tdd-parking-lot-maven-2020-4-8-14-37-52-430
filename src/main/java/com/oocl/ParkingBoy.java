@@ -3,7 +3,6 @@ package com.oocl;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Supplier;
 
 public class ParkingBoy {
     protected List<ParkingLot> parkingLots = new ArrayList<>();
