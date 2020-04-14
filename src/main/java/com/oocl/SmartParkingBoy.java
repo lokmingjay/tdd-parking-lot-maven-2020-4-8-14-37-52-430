@@ -1,5 +1,7 @@
 package com.oocl;
 
+import java.util.Comparator;
+
 public class SmartParkingBoy extends ParkingBoy {
 
     public SmartParkingBoy(ParkingLot... parkingLots) {
@@ -8,12 +10,10 @@ public class SmartParkingBoy extends ParkingBoy {
 
     @Override
     public ParkingTicket park(Car car) {
-        int targetParkingPositionNumber = parkingLots.stream().mapToInt(ParkingLot::emptyParkingNumber).max().getAsInt();
-        for (ParkingLot parkingLot : parkingLots) {
-            if (parkingLot.emptyParkingNumber() == targetParkingPositionNumber && targetParkingPositionNumber != 0) {
-                return parkingLot.park(car);
-            }
-        }
-        throw new FullCapacityException();
+
+        ParkingLot targetParkingLot = parkingLots.stream()
+                .max(Comparator.comparing(ParkingLot::emptyParkingNumber))
+                .orElseThrow(FullCapacityException::new);
+        return targetParkingLot.park(car);
     }
 }
