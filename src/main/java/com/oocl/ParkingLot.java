@@ -21,9 +21,6 @@ public class ParkingLot {
         this.capacity = capacity;
     }
     public ParkingTicket park(Car car) {
-//        if (carTicketMap.size() == capacity){
-//           throw new FullCapacityException();
-//        }
         ParkingTicket ticket = new ParkingTicket();
         carTicketMap.put(ticket, car);
         return ticket;
@@ -40,6 +37,7 @@ public class ParkingLot {
     public int emptyParkingNumber (){
         return capacity-carTicketMap.size();
     }
+
     public double availablePositionRate() {
         return Double.valueOf(emptyParkingNumber())/capacity;
     }

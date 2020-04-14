@@ -61,8 +61,6 @@ public class ParkingBoyTest {
         Car carB = new Car();
         ParkingTicket parkingTicketA = parkingBoy.park(carA);
         ParkingTicket parkingTicketB = parkingBoy.park(carB);
-
-
     }
 
     @Test
